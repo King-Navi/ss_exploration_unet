@@ -1,0 +1,22 @@
+[project]
+name = "ss_exploration_unet"
+version = "0.1.0"
+description = "First steps in Unet"
+authors = [
+    {name = "King-Navi",email = "168604098+King-Navi@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pytorch_cuda"
+url = "https://download.pytorch.org/whl/cu128_full"
+priority = "explicit"
+
