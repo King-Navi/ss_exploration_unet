@@ -8,42 +8,61 @@
 > Check your GPU/driver:
 ```bash
 nvidia-smi
+```
 
 
 
 
 # (1) Install Poetry if needed
+```bash
 curl -sSL https://install.python-poetry.org | python3 -
 export PATH="$HOME/.local/bin:$PATH"
-
+```
 # (2) Install project deps
+```bash
 poetry install
-
+```
 # (3) Activate venv
-source "$(poetry env info --path)/bin/activate"
+
+
+```bash
+poetry self add poetry-plugin-shell
+```
+
+```bash
+poetry shell
+```
+
 
 # (4a) Install PyTorch (GPU, CUDA 12.8)
+```bash
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-
+```
 # (4b) OR CPU-only (choose one)
+
+```bash
 # pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+```
+
 
 # (5) Verify
-<h1>Check if all is good</h1>
-
+```bash
 poetry run python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
-
-
-Output:
+```
+Example of output:
 
 CUDA available: True
 Device: NVIDIA GeForce RTX 3060
 
 # (6) Run
+```bash
 python test.py
+```
 # or:
+```bash
 exit
 poetry run python test.py
+```
 
 
 
